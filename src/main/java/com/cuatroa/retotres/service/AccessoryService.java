@@ -26,12 +26,12 @@ public class AccessoryService {
         return accesoryRepository.getAll();
     }
 
-    public Optional<Accessory> getAccesory(String reference) {
-        return accesoryRepository.getAccesory(reference);
+    public Optional<Accessory> getAccesory(String brand) {
+        return accesoryRepository.getAccesory(brand);
     }
 
     public Accessory create(Accessory accesory) {
-        if (accesory.getReference() == null) {
+        if (accesory.getBrand() == null) {
             return accesory;
         } else {
             return accesoryRepository.create(accesory);
@@ -40,19 +40,22 @@ public class AccessoryService {
 
     public Accessory update(Accessory accesory) {
 
-        if (accesory.getReference() != null) {
-            Optional<Accessory> accesoryDb = accesoryRepository.getAccesory(accesory.getReference());
+        if (accesory.getBrand() != null) {
+            Optional<Accessory> accesoryDb = accesoryRepository.getAccesory(accesory.getBrand());
             if (!accesoryDb.isEmpty()) {
-                if (accesory.getBrand() != null) {
-                    accesoryDb.get().setBrand(accesory.getBrand());
+                if (accesory.getCategory() != null) {
+                    accesoryDb.get().setBrand(accesory.getCategory());
                 }
 
                 if (accesory.getCategory() != null) {
                     accesoryDb.get().setCategory(accesory.getCategory());
                 }
 
-                if (accesory.getMaterial() != null) {
-                    accesoryDb.get().setMaterial(accesory.getMaterial());
+                if (accesory.getResolution() != null) {
+                    accesoryDb.get().setResolution(accesory.getResolution());
+                }
+                if (accesory.getAspectRatio() != null) {
+                    accesoryDb.get().setAspectRatio(accesory.getAspectRatio());
                 }
 
                 if (accesory.getDescription() != null) {
