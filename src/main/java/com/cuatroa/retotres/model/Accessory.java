@@ -25,6 +25,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class Accessory {
     @Id
+    private String reference;
      private String brand;
     private String category;
     private String inches;
