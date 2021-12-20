@@ -40,8 +40,8 @@ public class DemoApplication implements CommandLineRunner {
         orderCrudRepository.deleteAll();
 
         crudRepository.saveAll(List.of(
-                new Accessory("AP-903", "ACME", "MATERIAL 1", "PRESENTACION 1", "DESCRIPCION DETALLADA", true, 120000, 10, "https://www.avasoluciones.com/uploads/2021/09/910-006127.jpg"),
-                new Accessory("AP-904", "ACME", "MATERIAL 2","PRESENTACION 2", "DESCRIPCION DETALLADA",  true, 130000, 10, "https://www.avasoluciones.com/uploads/2021/09/910-007.jpg")
+                new Accessory("AP-903", "ACME", "MATERIAL 1", "inches1", "inches1", "PRESENTACION 1", "DESCRIPCION DETALLADA", true, 120000, 10, "https://www.avasoluciones.com/uploads/2021/09/910-006127.jpg"),
+                new Accessory("AP-904", "ACME", "MATERIAL 2","inches2", "inches2","PRESENTACION 2", "DESCRIPCION DETALLADA",  true, 130000, 10, "https://www.avasoluciones.com/uploads/2021/09/910-007.jpg")
         ));
 
         userCrudRepository.saveAll(List.of(
@@ -65,7 +65,7 @@ public class DemoApplication implements CommandLineRunner {
         Optional<User> salesManTwo = userCrudRepository.findById(6);
 
         //Mapa de productos asociados a una orden
-        Map<String, Accessory> productOrderOne = new HashMap<String, Accessory>();
+        Map<String, Accessory> productOrderOne = new HashMap<>();
         Map<String, Accessory> productOrderTwo = new HashMap<String, Accessory>();
 
         //Mapa de cantidades de producto asociados a una orden
